@@ -33,9 +33,8 @@ var cc = canvasInput.getContext('2d');
 
 var noseTip;
 
-function drawLoop() {
-	requestAnimationFrame(drawLoop);
-	cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
+function faceTrackingLoop() {
+	requestAnimationFrame(faceTrackingLoop);
 
 	var positions = ctracker.getCurrentPosition();
 	noseTip = positions[62];
@@ -45,11 +44,9 @@ function drawLoop() {
 	lowerLipCenter = positions[57];
 	leftEyebrow = positions[16];
 	rightEyebrow = positions[20];
-
-	// ctracker.draw(canvasInput);
 }
 
-drawLoop();
+faceTrackingLoop();
 
 function setup() {
 	createCanvas(800, 600);
