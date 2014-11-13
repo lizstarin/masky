@@ -1,0 +1,9 @@
+.hello {
+	font-family: 'Sigmar One';
+	font-size: 100pt;
+	color: #88CCFF;
+	width: 100%;
+	margin: 100px 0px 0px 0px;
+	text-align: center;
+	text-decoration: blink;
+}
