@@ -24,8 +24,8 @@ function definePoints(positions) {
   headTilt = Math.atan((leftMouthCorner[1] - rightMouthCorner[1]) / (leftMouthCorner[0] - rightMouthCorner[0])); 
 }
 
-function drawFaceParts() {
-  drawNose(noseTip[0], noseTip[1]);
+function drawFace() {
+  drawNose(0, 0);
 
   // var leftPercentOpen = getLeftEyeOpening();
   // var rightPercentOpen = getRightEyeOpening();
@@ -35,13 +35,16 @@ function drawFaceParts() {
   var mouthWidth = leftMouthCorner[0] - rightMouthCorner[0];
   var mouthHeight = Math.abs(upperLipCenter[1] - lowerLipCenter[1]);
 
-  drawEye(leftEye[0], leftEye[1], leftEyeHeight);
-  drawEye(rightEye[0], rightEye[1], rightEyeHeight);
+  var nX = noseTip[0];
+  var nY = noseTip[1];
+
+  drawEye(leftEye[0] - nX, leftEye[1] - nY, leftEyeHeight);
+  drawEye(rightEye[0] - nX, rightEye[1] - nY, rightEyeHeight);
   
-  drawLeftEyebrow(leftEyebrow[0], leftEyebrow[1]);
-  drawRightEyebrow(rightEyebrow[0], rightEyebrow[1]);
-  drawUpperLip(upperLipCenter[0], upperLipCenter[1], mouthWidth);
-  drawLowerLip(lowerLipCenter[0], lowerLipCenter[1], mouthWidth);
+  drawLeftEyebrow(leftEyebrow[0] - nX, leftEyebrow[1] - nY);
+  drawRightEyebrow(rightEyebrow[0] - nX, rightEyebrow[1] - nY);
+  drawUpperLip(upperLipCenter[0] - nX, upperLipCenter[1] - nY, mouthWidth);
+  drawLowerLip(lowerLipCenter[0] - nX, lowerLipCenter[1] - nY, mouthWidth);
 }
 
 function drawEye(x, y, eyeHeight) {

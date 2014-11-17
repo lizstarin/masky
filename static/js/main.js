@@ -24,8 +24,8 @@ function setup() {
 function draw() {
   background(0);
 
-  // translate(noseTip[0], noseTip[1]);
-  // rotate(headTilt);
+  translate(noseTip[0], noseTip[1]);
+  rotate(headTilt);
 
-  drawFaceParts(); 
+  drawFace(); 
 }
