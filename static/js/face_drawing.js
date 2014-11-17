@@ -9,7 +9,11 @@ function loadImages() {
 function definePoints(positions) {
   noseTip = positions[62];
   leftEye = positions[32];
+  leftEyeTop = positions[29];
+  leftEyeBottom = positions[31];
   rightEye = positions[27];
+  rightEyeTop = positions[24];
+  rightEyeBottom = positions[26];
   upperLipCenter = positions[60];
   lowerLipCenter = positions[57];
   leftEyebrow = positions[16];
@@ -23,20 +27,34 @@ function definePoints(positions) {
 function drawFaceParts() {
   drawNose(noseTip[0], noseTip[1]);
 
-  var leftPercentOpen = getLeftEyeOpening();
-  var rightPercentOpen = getRightEyeOpening();
-  drawEye(leftEye[0], leftEye[1], leftPercentOpen);
-  drawEye(rightEye[0], rightEye[1], rightPercentOpen);
+  // var leftPercentOpen = getLeftEyeOpening();
+  // var rightPercentOpen = getRightEyeOpening();
+
+  var leftEyeHeight = leftEyeTop[1] - leftEyeBottom[1];
+  var rightEyeHeight = rightEyeTop[1] - rightEyeBottom[1];
+  var mouthWidth = leftMouthCorner[0] - rightMouthCorner[0];
+  var mouthHeight = Math.abs(upperLipCenter[1] - lowerLipCenter[1]);
+
+  drawEye(leftEye[0], leftEye[1], leftEyeHeight);
+  drawEye(rightEye[0], rightEye[1], rightEyeHeight);
   
   drawLeftEyebrow(leftEyebrow[0], leftEyebrow[1]);
   drawRightEyebrow(rightEyebrow[0], rightEyebrow[1]);
-  drawUpperLip(upperLipCenter[0], upperLipCenter[1]);
-  drawLowerLip(lowerLipCenter[0], lowerLipCenter[1]);
+  drawUpperLip(upperLipCenter[0], upperLipCenter[1], mouthWidth);
+  drawLowerLip(lowerLipCenter[0], lowerLipCenter[1], mouthWidth);
 }
 
-function drawEye(x, y, percentOpen) {
+function drawEye(x, y, eyeHeight) {
+  // if (Math.abs(eyeHeight) < 18) {
+  //   eyeHeight = eyeHeight / 2;
+  // } else {
+  //   eyeHeight = eyeHeight * 2;
+  // }
+  if (Math.abs(eyeHeight) > 18) {
+    eyeHeight = eyeHeight * 1.3;
+  }
   fill(255);
-  ellipse(x, y, 40, 20 * percentOpen);
+  ellipse(x, y, 40, eyeHeight);
   fill(0);
   ellipse(x, y, 10, 10);
 }
@@ -59,13 +77,20 @@ function drawNose(x, y) {
   image(nose, x - w / 2, y - 2 * h / 3, w, h);
 }
 
-function drawUpperLip(x, y) {
-  w = upperLip.width / 2;
-  image(upperLip, x - w, y);
+function drawUpperLip(x, y, mouthWidth) {
+  if (mouthWidth > 100) {
+    mouthWidth = mouthWidth * 1.5;
+  }
+  w = mouthWidth;
+  h = upperLip.height;
+  image(upperLip, x - w / 2, y, w, h);
 }
 
-function drawLowerLip(x, y) {
-  w = lowerLip.width / 2;
-  h = lowerLip.height / 2;
-  image(lowerLip, x - w, y + h / 2);
+function drawLowerLip(x, y, mouthWidth) {
+  if (mouthWidth > 100) {
+    mouthWidth = mouthWidth * 1.5;
+  }
+  w = mouthWidth;
+  h = upperLip.height;
+  image(lowerLip, x - w / 2, y + h / 2, w, h);
 }

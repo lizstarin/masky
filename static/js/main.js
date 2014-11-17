@@ -2,14 +2,14 @@ var videoInput = document.getElementById('camera-stream');
 
 var faceTracker = new clm.tracker();
 var faces = [];
+var positions, averagePositions;
 faceTracker.init(pModel);
 faceTracker.start(videoInput);
 
 function faceTrackingLoop() {
 	requestAnimationFrame(faceTrackingLoop);
 
-	var positions = faceTracker.getCurrentPosition();
-
+	positions = faceTracker.getCurrentPosition();
   definePoints(positions);
 }
 
@@ -23,6 +23,8 @@ function setup() {
 
 function draw() {
   background(0);
+
+  // translate(noseTip[0], noseTip[1]);
   // rotate(headTilt);
 
   drawFaceParts(); 

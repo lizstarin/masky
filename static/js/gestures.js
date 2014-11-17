@@ -4,23 +4,11 @@ function zip(arrays) {
   });
 }
 
-function getRightEyeOpening() {
-	averageFace = getAverageFace();
-	currentFace = faceTracker.getCurrentPosition();
-	return (currentFace[24][1] - currentFace[26][1]) / (averageFace[24][1] - averageFace[26][1]);
-}
-
-function getLeftEyeOpening() {
-	averageFace = getAverageFace();
-	currentFace = faceTracker.getCurrentPosition();
-	return (currentFace[29][1] - currentFace[31][1]) / (averageFace[29][1] - averageFace[31][1]);
-}
-
-function getAverageFace() {
+function getAveragePositions(positions) {
 	if (faces.length == 1000) {
 		faces.shift();
 	}
-	faces.push(faceTracker.getCurrentPosition());
+	faces.push(positions);
 
 	var zippedFaces = zip(faces);
 	var averagePositions = zippedFaces.map(function(position) {
@@ -38,16 +26,16 @@ function averagePairs(arr) {
 	return([sumX / arr.length, sumY / arr.length]);
 }
 
-function normalizePositionsToNose(positions) {
-	var nose = positions[62];
-
-	position.map(function(p) {
-		normalizePointToNose(nose, p)
-	})
+function getRightEyeOpening() {
+	return (positions[24][1] - positions[26][1]) / (averagePositions[24][1] - averagePositions[26][1]);
 }
 
-function normalizePointToNose(nose, point) {
-	var x = nose[0] - point[0];
-	var y = nose[1] - point[1];
-	return [x, y];
+function getLeftEyeOpening() {
+	return (positions[29][1] - positions[31][1]) / (averagePositions[29][1] - averagePositions[31][1]);
 }
+
+// function getHeadTilt() {
+// 	leftMouthCorner = positions[50];
+// 	rightMouthCorner = positions[44];
+// 	return Math.atan((leftMouthCorner[1] - rightMouthCorner[1]) / (leftMouthCorner[0] - rightMouthCorner[0])); 
+// }
