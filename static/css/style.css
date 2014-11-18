@@ -1,13 +1,14 @@
+body {
+	margin: 0;
+}
+
 video {
-	background-color: black;
-	transform: scaleX(-1);
-	position: absolute;
-	left: 0;
+	display: none;
 }
 
 canvas {
 	transform: scaleX(-1);
-	position: absolute;
-	left: 0;
+	margin: auto;
+	display: block;
 }
 

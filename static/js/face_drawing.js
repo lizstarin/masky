@@ -6,7 +6,11 @@ function loadImages() {
   rightEyebrowImage = loadImage("static/assets/right_eyebrow.svg");
 }
 
-function definePoints(positions) {
+function definePoints(pos) {
+  var SCALE = 4;
+  var positions = pos.map(function(p) {
+    return [SCALE * p[0], SCALE * p[1]];
+  })
   noseTip = positions[62];
   leftEye = positions[32];
   leftEyeTop = positions[29];
@@ -27,9 +31,6 @@ function definePoints(positions) {
 function drawFace() {
   drawNose(0, 0);
 
-  // var leftPercentOpen = getLeftEyeOpening();
-  // var rightPercentOpen = getRightEyeOpening();
-
   var leftEyeHeight = leftEyeTop[1] - leftEyeBottom[1];
   var rightEyeHeight = rightEyeTop[1] - rightEyeBottom[1];
   var mouthWidth = leftMouthCorner[0] - rightMouthCorner[0];
@@ -48,11 +49,6 @@ function drawFace() {
 }
 
 function drawEye(x, y, eyeHeight) {
-  // if (Math.abs(eyeHeight) < 18) {
-  //   eyeHeight = eyeHeight / 2;
-  // } else {
-  //   eyeHeight = eyeHeight * 2;
-  // }
   if (Math.abs(eyeHeight) > 18) {
     eyeHeight = eyeHeight * 1.3;
   }
