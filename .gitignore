@@ -1,10 +1,7 @@
 # Untracked files
 
 # App
-.env
-
-# Python
-*.pyc
+asset-files/*
 
 # Generic
 *~
