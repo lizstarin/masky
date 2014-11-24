@@ -4,8 +4,15 @@ var faces = [];
 var faceTracker = new clm.tracker();
 
 function setup() {
-  createCanvas(800, 600);
   noStroke();
+
+  var container = createDiv("");
+  container.id("container");
+  var canvas = createCanvas(800, 600);
+  canvas.parent("container");
+  var sidebar = createDiv("");
+  sidebar.id("sidebar");
+  sidebar.parent("container");
 
   faceTracker.init(pModel);
   faceTracker.start(videoInput);
@@ -23,4 +30,8 @@ function draw() {
   rotate(points.headTilt);
 
   drawFace(); 
+}
+
+function drawSidebar() {
+
 }

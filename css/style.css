@@ -6,9 +6,23 @@ video {
 	display: none;
 }
 
+#container {
+	margin: auto;
+	width: 1000px;
+}
+
 canvas {
 	transform: scaleX(-1);
-	margin: auto;
-	display: block;
+}
+
+#sidebar {
+	background-color: #333;
+	width: 200px;
+	height: 600px;
+	float: left;
+}
+
+.face_component {
+
 }
 
