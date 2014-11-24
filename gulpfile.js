@@ -10,6 +10,6 @@ var concatFilenamesOptions = {
 gulp.task('file-manifest', function() {
   gulp
   .src('./assets/*')
-  .pipe(concatFilenames('manifest.txt', concatFilenamesOptions))
+  .pipe(concatFilenames('asset-manifest.txt', concatFilenamesOptions))
   .pipe(gulp.dest('./js/'));
 });
