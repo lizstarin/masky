@@ -1,12 +1,3 @@
-function loadImages() {
-  upperLip1 = loadImage("assets/upper_lip.svg");
-  lowerLip1 = loadImage("assets/lower_lip.svg");
-  nose1 = loadImage("assets/nose1.svg");
-  nose2 = loadImage("assets/nose2.svg");
-  leftEyebrow1 = loadImage("assets/left_eyebrow.svg");
-  rightEyebrow1 = loadImage("assets/right_eyebrow.svg");
-}
-
 function drawFace() {
   var nose = new Nose(nose2);
   nose.draw();

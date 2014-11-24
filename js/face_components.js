@@ -80,6 +80,38 @@ LowerLip.prototype.draw = function() {
 	image(this.image, this.x - this.w / 2, this.y + this.h / 2, this.w, this.h);
 }
 
+function readTextFile(file) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", file);
+  rawFile.onreadystatechange = function ()
+  {
+      if(rawFile.readyState === 4)
+      {
+          if(rawFile.status === 200 || rawFile.status == 0)
+          {
+              var rawFileTrimmed = rawFile.responseText.trim();
+              var lines = rawFileTrimmed.split("\n");
+              console.log(lines);
+              loadImages(lines);
+          }
+      }
+  }
+  rawFile.send(null);
+}
+
+function camelize(str) {
+  return str.replace(/(\-|_|\s)+(.)?/g, function(mathc, sep, c) {
+    return (c ? c.toUpperCase() : '');
+  });
+}
+
+function loadImages(lines) {
+  lines.forEach(function(line) {
+    var varName = camelize(line).slice(0, -4);
+    window[varName] = loadImage("assets/" + line);
+  })
+}
+
 
 
 

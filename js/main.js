@@ -10,7 +10,7 @@ function setup() {
   faceTracker.init(pModel);
   faceTracker.start(videoInput);
 
-  loadImages();
+  readTextFile("js/asset-manifest.txt");
 }
 
 function draw() {
