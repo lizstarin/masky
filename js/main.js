@@ -6,6 +6,7 @@ var faceTracker = new clm.tracker();
 function setup() {
   createCanvas(800, 600);
   noStroke();
+  loadImages();
 
   faceTracker.init(pModel);
   faceTracker.start(videoInput);
