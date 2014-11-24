@@ -132,8 +132,8 @@ function drawFace() {
   var nX = noseTip[0];
   var nY = noseTip[1];
 
-  drawEye(leftEye[0] - nX, leftEye[1] - nY, leftEyeHeight);
-  drawEye(rightEye[0] - nX, rightEye[1] - nY, rightEyeHeight);
+  drawEye(leftEyeCenter[0] - nX, leftEyeCenter[1] - nY, leftEyeHeight);
+  drawEye(rightEyeCenter[0] - nX, rightEyeCenter[1] - nY, rightEyeHeight);
   
   drawLeftEyebrow(leftEyebrow[0] - nX, leftEyebrow[1] - nY);
   drawRightEyebrow(rightEyebrow[0] - nX, rightEyebrow[1] - nY);

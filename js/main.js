@@ -18,8 +18,8 @@ function draw() {
   positions = faceTracker.getCurrentPosition();
   definePoints(positions);
 
-  translate(noseTip[0], noseTip[1]);
-  rotate(headTilt);
+  translate(points.noseTip[0], points.noseTip[1]);
+  rotate(points.headTilt);
 
   drawFace(); 
 }

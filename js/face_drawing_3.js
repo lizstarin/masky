@@ -6,46 +6,19 @@ function loadImages() {
   rightEyebrowImage = loadImage("assets/right_eyebrow.svg");
 }
 
-function definePoints(pos) {
-  var SCALE = 4;
-  var positions = pos.map(function(p) {
-    return [SCALE * p[0], SCALE * p[1]];
-  })
-  noseTip = positions[62];
-  leftEye = positions[32];
-  leftEyeTop = positions[29];
-  leftEyeBottom = positions[31];
-  rightEye = positions[27];
-  rightEyeTop = positions[24];
-  rightEyeBottom = positions[26];
-  upperLipCenter = positions[60];
-  lowerLipCenter = positions[57];
-  leftEyebrow = positions[16];
-  rightEyebrow = positions[20];
-
-  leftMouthCorner = positions[50];
-  rightMouthCorner = positions[44];
-  headTilt = Math.atan((leftMouthCorner[1] - rightMouthCorner[1]) / (leftMouthCorner[0] - rightMouthCorner[0])); 
-}
-
 function drawFace() {
   drawNose(0, 0);
 
-  var leftEyeHeight = leftEyeTop[1] - leftEyeBottom[1];
-  var rightEyeHeight = rightEyeTop[1] - rightEyeBottom[1];
-  var mouthWidth = leftMouthCorner[0] - rightMouthCorner[0];
-  var mouthHeight = Math.abs(upperLipCenter[1] - lowerLipCenter[1]);
+  var nX = points.noseTip[0];
+  var nY = points.noseTip[1];
 
-  var nX = noseTip[0];
-  var nY = noseTip[1];
-
-  drawEye(leftEye[0] - nX, leftEye[1] - nY, leftEyeHeight);
-  drawEye(rightEye[0] - nX, rightEye[1] - nY, rightEyeHeight);
+  drawEye(points.leftEyeCenter[0] - nX, points.leftEyeCenter[1] - nY, points.leftEyeHeight);
+  drawEye(points.rightEyeCenter[0] - nX, points.rightEyeCenter[1] - nY, points.rightEyeHeight);
   
-  drawLeftEyebrow(leftEyebrow[0] - nX, leftEyebrow[1] - nY);
-  drawRightEyebrow(rightEyebrow[0] - nX, rightEyebrow[1] - nY);
-  drawUpperLip(upperLipCenter[0] - nX, upperLipCenter[1] - nY, mouthWidth);
-  drawLowerLip(lowerLipCenter[0] - nX, lowerLipCenter[1] - nY, mouthWidth);
+  drawLeftEyebrow(points.leftEyebrow[0] - nX, points.leftEyebrow[1] - nY);
+  drawRightEyebrow(points.rightEyebrow[0] - nX, points.rightEyebrow[1] - nY);
+  drawUpperLip(points.upperLipCenter[0] - nX, points.upperLipCenter[1] - nY, points.mouthWidth);
+  drawLowerLip(points.lowerLipCenter[0] - nX, points.lowerLipCenter[1] - nY, points.mouthWidth);
 }
 
 function drawEye(x, y, eyeHeight) {
