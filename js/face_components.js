@@ -1,3 +1,10 @@
+function setFaceComponent(imageName, location) {
+	this.image = imageName;
+	
+	this.x = location[0] - points.noseTip[0];
+	this.y = location[1] - points.noseTip[1];
+}
+
 function Nose(imageName) {
 	this.image = imageName;
 	this.x = 0;
@@ -29,9 +36,7 @@ Eye.prototype.draw = function() {
 }
 
 function LeftEyebrow(imageName) {
-	this.image = imageName;
-	this.x = points.leftEyebrow[0] - points.noseTip[0];
-	this.y = points.leftEyebrow[1] - points.noseTip[1];
+	setFaceComponent.call(this, imageName, points.leftEyebrow);
 	this.w = this.image.width / 8;
 	this.h = this.image.height / 8;
 }
@@ -41,9 +46,7 @@ LeftEyebrow.prototype.draw = function() {
 }
 
 function RightEyebrow(imageName) {
-	this.image = imageName;
-	this.x = points.rightEyebrow[0] - points.noseTip[0];
-	this.y = points.rightEyebrow[1] - points.noseTip[1];
+	setFaceComponent.call(this, imageName, points.rightEyebrow);
 	this.w = this.image.width / 8;
 	this.h = this.image.height / 8;
 }
@@ -55,9 +58,7 @@ RightEyebrow.prototype.draw = function() {
 function UpperLip(imageName) {
 	var mouthWidth = points.mouthWidth > 100 ? points.mouthWidth * 1.5 : points.mouthWidth;
 
-	this.image = imageName;
-	this.x = points.upperLipCenter[0] - points.noseTip[0];
-	this.y = points.upperLipCenter[1] - points.noseTip[1];
+	setFaceComponent.call(this, imageName, points.upperLipCenter);
 	this.w = mouthWidth;
 	this.h = this.image.height;
 }
@@ -69,9 +70,7 @@ UpperLip.prototype.draw = function() {
 function LowerLip(imageName) {
 	var mouthWidth = points.mouthWidth > 100 ? points.mouthWidth * 1.5 : points.mouthWidth;
 
-	this.image = imageName;
-	this.x = points.lowerLipCenter[0] - points.noseTip[0];
-	this.y = points.lowerLipCenter[1] - points.noseTip[1];
+	setFaceComponent.call(this, imageName, points.lowerLipCenter);
 	this.w = mouthWidth;
 	this.h = this.image.height;
 }
