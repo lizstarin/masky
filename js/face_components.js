@@ -90,7 +90,6 @@ function readTextFile(file) {
           {
               var rawFileTrimmed = rawFile.responseText.trim();
               var lines = rawFileTrimmed.split("\n");
-              console.log(lines);
               loadImages(lines);
           }
       }
@@ -107,6 +106,8 @@ function camelize(str) {
 function loadImages(lines) {
   lines.forEach(function(line) {
     var varName = camelize(line).slice(0, -4);
+    var className = varName.indexOf("1") > -1 ? "face-component selected " : "face-component ";
+
     var fileName = "assets/" + line;
     window[varName] = loadImage(fileName);
 
@@ -114,9 +115,42 @@ function loadImages(lines) {
 
     var faceComponent = createDiv("<img src = " + fileName + ">");
     faceComponent.parent("sidebar");
-    faceComponent.class("face-component");
+    faceComponent.class(className + componentType);
     faceComponent.attribute("component-type", componentType);
+    faceComponent.elt.addEventListener("click", selectComponent);
   });
+
+  initializeSelections();
+}
+
+function selectComponent() {
+  var componentType = this.getAttribute("component-type");
+  var oldSelection = this.parentNode.getElementsByClassName("selected face-component " + componentType);
+  if (this == oldSelection) {
+    return;
+  } else if (oldSelection.length > 0) {
+    oldSelection[0].classList.remove("selected");
+  }
+  this.classList.add("selected");
+  setSelection(this, componentType);
+}
+
+function initializeSelections() {
+	selections = {
+		noseSelection: nose1,
+		upperLipSelection: upperLip1,
+		lowerLipSelection: lowerLip1,
+		leftEyebrowSelection: leftEyebrow1,
+		rightEyebrowSelection: rightEyebrow1
+	}
+}
+
+function setSelection(el, type) {
+	var selectionKey = camelize(type) + "Selection";
+	var imageFileName = el.getElementsByTagName("img")[0].src;
+	var imageName = camelize(imageFileName.split("/").pop().slice(0, -4));
+
+	selections[selectionKey] = window[imageName];
 }
 
 function findComponentType(str) {
@@ -125,7 +159,7 @@ function findComponentType(str) {
 	if(s.indexOf("nose") > -1) {
 		return "nose";
 	} else 
-	if(s.indexOf("eye") > -1) {
+	if(s.indexOf("eye") > -1 && s.indexOf("eyebrow") == -1) {
 		return "eye";
 	} else
 	if(s.indexOf("upper_lip") > -1) {

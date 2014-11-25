@@ -34,3 +34,7 @@ canvas {
 	height: 50px;
 }
 
+.selected {
+	background-color: yellow;
+}
+

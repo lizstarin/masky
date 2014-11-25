@@ -6,7 +6,7 @@ var faceTracker = new clm.tracker();
 function setup() {
   noStroke();
 
-  layOutPage(setClickListeners);
+  layOutPage();
 
   faceTracker.init(pModel);
   faceTracker.start(videoInput);
@@ -37,17 +37,4 @@ function layOutPage() {
   var sidebar = createDiv("");
   sidebar.id("sidebar");
   sidebar.parent("container");
-}
-
-function setClickListeners() {
-  var faceComponents = document.getElementsByClassName("face-component");
-
-  faceComponents.forEach(function(fc) {
-    fc.addEventListener("click", selectComponent, false);
-  });
-}
-
-function selectComponent() {
-  // var componentType = this.className;
-  // this.setAttribute("class", "selected");
 }

@@ -25,4 +25,4 @@ function definePoints(pos) {
   points.mouthWidth = points.leftMouthCorner[0] - points.rightMouthCorner[0];
   points.mouthHeight = Math.abs(points.upperLipCenter[1] - points.lowerLipCenter[1]);
   points.headTilt = Math.atan((points.leftMouthCorner[1] - points.rightMouthCorner[1]) / (points.leftMouthCorner[0] - points.rightMouthCorner[0])); 
-}  
+} 

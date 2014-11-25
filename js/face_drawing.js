@@ -1,5 +1,5 @@
 function drawFace() {
-  var nose = new Nose(nose2);
+  var nose = new Nose(selections.noseSelection);
   nose.draw();
 
   var leftEye = new Eye(true);
@@ -8,15 +8,15 @@ function drawFace() {
   var rightEye = new Eye(false);
   rightEye.draw();
 
-  var leftEyebrow = new LeftEyebrow(leftEyebrow1);
+  var leftEyebrow = new LeftEyebrow(selections.leftEyebrowSelection);
   leftEyebrow.draw();
 
-  var rightEyebrow = new RightEyebrow(rightEyebrow1);
+  var rightEyebrow = new RightEyebrow(selections.rightEyebrowSelection);
   rightEyebrow.draw();
 
-  var upperLip = new UpperLip(upperLip1);
+  var upperLip = new UpperLip(selections.upperLipSelection);
   upperLip.draw();
 
-  var lowerLip = new LowerLip(lowerLip1);
+  var lowerLip = new LowerLip(selections.lowerLipSelection);
   lowerLip.draw();
 }
