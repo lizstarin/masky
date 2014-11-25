@@ -8,7 +8,7 @@ video {
 
 #container {
 	margin: auto;
-	width: 1000px;
+	width: 1010px;
 }
 
 canvas {
@@ -16,8 +16,8 @@ canvas {
 }
 
 #sidebar {
-	background-color: #333;
-	width: 200px;
+	background-color: black;
+	width: 210px;
 	height: 600px;
 	float: left;
 }
@@ -35,6 +35,6 @@ canvas {
 }
 
 .selected {
-	background-color: yellow;
+	background-color: #333;
 }
 
