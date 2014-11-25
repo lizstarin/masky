@@ -108,7 +108,12 @@ function camelize(str) {
 function loadImages(lines) {
   lines.forEach(function(line) {
     var varName = camelize(line).slice(0, -4);
-    window[varName] = loadImage("assets/" + line);
+    var fileName = "assets/" + line;
+    window[varName] = loadImage(fileName);
+
+    var faceComponent = createDiv("<img src = " + fileName + ">");
+    faceComponent.parent("sidebar");
+    faceComponent.class("face_component");
   })
 }
 
