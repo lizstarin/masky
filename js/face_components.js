@@ -1,8 +1,8 @@
 function setFaceComponent(imageName, location) {
 	this.image = imageName;
 	
-	this.x = location[0] - points.noseTip[0];
-	this.y = location[1] - points.noseTip[1];
+	this.x = location[0] - origin[0];
+	this.y = location[1] - origin[1];
 }
 
 function Nose(imageName) {
@@ -22,8 +22,8 @@ function Eye(isLeft) {
 	var eyeCenter = isLeft ? points.leftEyeCenter : points.rightEyeCenter;
 	var eh = Math.abs(eyeHeight) > 18 ? eyeHeight * 1.3 : eyeHeight; 
 
-	this.x = eyeCenter[0] - points.noseTip[0];
-	this.y = eyeCenter[1] - points.noseTip[1];
+	this.x = eyeCenter[0] - origin[0];
+	this.y = eyeCenter[1] - origin[1];
 	this.w = 40;
 	this.h = eh;
 }

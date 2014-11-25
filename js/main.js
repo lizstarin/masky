@@ -19,8 +19,9 @@ function draw() {
 
   positions = faceTracker.getCurrentPosition();
   definePoints(positions);
+  origin = points.noseTip;
 
-  translate(points.noseTip[0], points.noseTip[1]);
+  translate(origin[0], origin[1]);
   rotate(points.headTilt);
 
   drawFace(); 
@@ -29,8 +30,10 @@ function draw() {
 function layOutPage() {
   var container = createDiv("");
   container.id("container");
+
   var canvas = createCanvas(800, 600);
   canvas.parent("container");
+  
   var sidebar = createDiv("");
   sidebar.id("sidebar");
   sidebar.parent("container");

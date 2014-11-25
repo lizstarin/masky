@@ -8,8 +8,7 @@ function drawFace() {
   var rightEye = new Eye(false);
   rightEye.draw();
 
-  leftEyebrow = new LeftEyebrow(leftEyebrow1);
-  console.log(leftEyebrow);
+  var leftEyebrow = new LeftEyebrow(leftEyebrow1);
   leftEyebrow.draw();
 
   var rightEyebrow = new RightEyebrow(rightEyebrow1);
