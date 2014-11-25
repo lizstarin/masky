@@ -1,6 +1,10 @@
 left_eyebrow1.svg
+left_eyebrow2.svg
 lower_lip1.svg
+lower_lip2.svg
 nose1.svg
 nose2.svg
 right_eyebrow1.svg
+right_eyebrow2.svg
 upper_lip1.svg
+upper_lip2.svg

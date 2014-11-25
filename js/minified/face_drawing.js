@@ -1,0 +1,1 @@
+function drawFace(){var e=new Nose(selections.noseSelection);e.draw();var r=new Eye(!0);r.draw();var w=new Eye(!1);w.draw();var n=new LeftEyebrow(selections.leftEyebrowSelection);n.draw();var o=new RightEyebrow(selections.rightEyebrowSelection);o.draw();var i=new UpperLip(selections.upperLipSelection);i.draw();var a=new LowerLip(selections.lowerLipSelection);a.draw()}

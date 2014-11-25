@@ -1,0 +1,1 @@
+navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia,navigator.getUserMedia?navigator.getUserMedia({video:!0},function(e){var o=document.querySelector("video");o.src=window.URL.createObjectURL(e)},function(e){console.log("The following error occured: "+e)}):console.log("getUserMedia not supported");
