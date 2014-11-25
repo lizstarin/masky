@@ -22,14 +22,14 @@ canvas {
 	float: left;
 }
 
-.face_component {
+.face-component {
 	width: 50px;
 	height: 50px;
 	float: left;
 	margin: 10px;
 }
 
-.face_component img {
+.face-component img {
 	width: 50px;
 	height: 50px;
 }

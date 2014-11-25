@@ -110,10 +110,38 @@ function loadImages(lines) {
     var fileName = "assets/" + line;
     window[varName] = loadImage(fileName);
 
+    var componentType = findComponentType(fileName);
+
     var faceComponent = createDiv("<img src = " + fileName + ">");
     faceComponent.parent("sidebar");
-    faceComponent.class("face_component");
-  })
+    faceComponent.class("face-component");
+    faceComponent.attribute("component-type", componentType);
+  });
+}
+
+function findComponentType(str) {
+	var s = str.toLowerCase();
+
+	if(s.indexOf("nose") > -1) {
+		return "nose";
+	} else 
+	if(s.indexOf("eye") > -1) {
+		return "eye";
+	} else
+	if(s.indexOf("upper_lip") > -1) {
+		return "upper_lip";
+	} else
+	if(s.indexOf("lower_lip") > -1) {
+		return "lower_lip";
+	} else
+	if(s.indexOf("left_eyebrow") > -1) {
+		return "left_eyebrow";
+	} else
+	if(s.indexOf("right_eyebrow") > -1) {
+		return "right_eyebrow";
+	} else {
+		return "";
+	}
 }
 
 
