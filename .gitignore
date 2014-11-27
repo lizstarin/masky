@@ -2,6 +2,7 @@
 
 # App
 asset-files/*
+node_modules/*
 
 # Generic
 *~

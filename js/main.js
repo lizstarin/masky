@@ -12,6 +12,12 @@ function setup() {
   faceTracker.start(videoInput);
 
   readTextFile("js/asset-manifest.txt");
+
+  noLoop();
+  var video = document.querySelector("video");
+  video.addEventListener("loadeddata", function() {
+    loop();
+  });
 }
 
 function draw() {
