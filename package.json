@@ -1,0 +1,26 @@
+{
+  "name": "masky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-concat-filenames": "^0.0.3",
+    "gulp-uglify": "^1.0.1",
+    "gulp": "^3.8.10",
+    "gulp-image-preload": "^0.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lizstarin/masky.git"
+  },
+  "author": "Liz Starin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizstarin/masky/issues"
+  },
+  "homepage": "https://github.com/lizstarin/masky"
+}
